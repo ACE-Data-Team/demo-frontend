@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OAUOIR</title>
+  <script src="https://kit.fontawesome.com/25863d8331.js" crossorigin="anonymous"></script>
+  <style>
+        /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Header layout */
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        color: white;
+        border-bottom: 1px solid #ccc;
+        font-family: Arial, sans-serif;
+        flex-wrap: wrap;
+    }
+
+    /* Logo section */
+    .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1 1 200px;    
+    }
+
+    .logo-area img {
+        height: 40px;
+    }
+
+    .logo-area .title {
+        font-weight: bold;
+        color: #1e1e4f;
+        font-size: 20px;
+    }
+
+    /* Navigation links */
+    .nav-links {
+        display: flex;
+        gap: 20px;
+        flex: 2 1 300px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #1e1e4f;
+        font-weight: 500;
+    }
+
+    .nav-links a:hover {
+        color: #0056b3;
+    }
+
+    /* Search bar */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+        border-radius: 4px;
+        border-bottom: 2px solid #aaa;
+        flex: 1 1 200px;
+        justify-content: flex-end;
+    }
+
+    .search-icon {
+        margin-right: 8px;
+        color: #333;
+    }
+
+    .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-size: 14px;
+        color: #333;
+        width: 100px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-area {
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+    }
+  </style>
+</head>
+<header>
+    <header class="main-header">
+        <div class="logo-area">
+          <img src="obafemi-awolowo-university-logo-transparent.png" alt="OAU Logo">
+          <span class="title">OAUOIR</span>
+        </div>
+      
+        <nav class="nav-links">
+          <a href="#">Data</a>
+          <a href="#">Blog</a>
+          <a href="#">Request Data</a>
+        </nav>
+      
+        <div class="search-bar">
+          <i class="search-icon">🔍</i>
+          <input type="text" placeholder="Search...">
+        </div>
+      </header>
+      
+</header>

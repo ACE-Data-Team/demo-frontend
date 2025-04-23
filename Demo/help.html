@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Help</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #002147; /* same as logo-colored background */
+      margin: 0;
+      padding: 0;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .help-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 700px;
+    }
+
+    h1, h2 {
+      color: yellow;
+      margin-top: 0;
+    }
+
+    p, li {
+      line-height: 1.6;
+      font-size: 1em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .back-btn {
+        display: block;
+      margin-top: 20px;
+      color: red;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="help-box">
+    <h1><i class="fas fa-circle-question"></i> Need Help?</h1>
+    <p>This page will help you resolve login issues.</p>
+
+    <h2><i class="fas fa-key"></i> Forgot Your Password?</h2>
+    <p>Click on the <strong>"Forgot Password?"</strong> link on the login page to reset your password.</p>
+
+    <h2><i class="fas fa-user-lock"></i> Trouble Logging In?</h2>
+    <ul>
+      <li>Ensure you selected the correct <strong>Role</strong> (Student or Staff).</li>
+      <li>Check that your <strong>ID or Username</strong> is correct.</li>
+      <li>Passwords are case-sensitive — check for typos!</li>
+    </ul>
+
+    <h2><i class="fas fa-tools"></i> Technical Troubleshooting</h2>
+    <ul>
+      <li>Use an updated browser (Chrome(recommended), Firefox, Safari, or Edge).</li>
+      <li>Clear your browser cache and cookies.</li>
+      <li>Try logging in with Incognito or Private mode.</li>
+    </ul>
+
+    <h2><i class="fas fa-headset"></i> Still Need Help?</h2>
+    <p>Contact our support team for more assistance:</p>
+    <p>Email: <a href="mailto:help@oauir.edu.ng">help@oauir.edu.ng</a></p>
+    <p>Phone: +123-456-7890 (Mon–Fri, 9am–5pm)</p>
+
+    <a class="back-btn" href="login.html"><i class="fas fa-arrow-left"></i> Back to Login</a>
+  </div>
+</body>
+</html>

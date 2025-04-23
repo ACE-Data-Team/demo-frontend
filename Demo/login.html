@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-bg: #002147;
+      --text-color: white;
+      --input-bg: rgba(255, 255, 255, 0.1);
+      --placeholder-color: #ccc;
+      --button-bg: yellow;
+      --button-text: #002147;
+      --link-color: red;
+    }
+
+    body.light-theme {
+      --primary-bg: #f4f4f4;
+      --text-color: #222;
+      --input-bg: #fff;
+      --placeholder-color: #666;
+      --button-bg: #002147;
+      --button-text: white;
+      --link-color: #0077cc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: var(--text-color);
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .login-box {
+      background-color: transparent;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .login-box img {
+      width: 90px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--button-bg);
+      margin-bottom: 20px;
+    }
+
+    .input-icon {
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: var(--placeholder-color);
+      pointer-events: none;
+    }
+
+    .input-icon input,
+    .input-icon select {
+      width: 100%;
+      padding: 10px 10px 10px 35px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    select option {
+      color: #000;
+    }
+
+    ::placeholder {
+      color: var(--placeholder-color);
+    }
+
+    .password-wrapper {
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .password-wrapper i.fa-lock {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: var(--placeholder-color);
+    }
+
+    .password-wrapper input {
+      width: 100%;
+      padding: 10px 35px 10px 35px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: var(--placeholder-color);
+    }
+
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9em;
+      margin-bottom: 16px;
+    }
+
+    .forgot-link,
+    .help-link {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .forgot-link:hover,
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 10px;
+      }
+
+      .login-box img {
+        width: 70px;
+      }
+
+      .theme-toggle {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="login-container">
+    <div class="login-box">
+      <img src="obafemi-awolowo-university-logo-transparent.png" alt="Institution Logo">
+      <h2>Login</h2>
+
+      <form id="loginForm">
+        <div class="input-icon">
+          <i class="fas fa-user-tag"></i>
+          <select name="role" id="roleSelect" required>
+            <option value="student">Student</option>
+            <option value="staff">Staff</option>
+          </select>
+        </div>
+
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="ID or Username" required>
+        </div>
+
+        <div class="password-wrapper">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" id="passwordField" placeholder="Password" required>
+          <span id="togglePassword" class="toggle-password">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+
+        <div class="link-row">
+          <a class="forgot-link" id="forgotLink" href="forgot.html">Forgot Password?</a>
+          <a class="help-link" href="help.html">Help?</a>
+        </div>
+
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const passwordField = document.getElementById("passwordField");
+    const togglePassword = document.getElementById("togglePassword");
+    const roleSelect = document.getElementById("roleSelect");
+    const forgotLink = document.getElementById("forgotLink");
+    const form = document.getElementById("loginForm");
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // Toggle Password Visibility
+    togglePassword.addEventListener("click", () => {
+      const type = passwordField.type === "password" ? "text" : "password";
+      passwordField.type = type;
+      togglePassword.innerHTML = type === "password"
+        ? '<i class="fas fa-eye"></i>'
+        : '<i class="fas fa-eye-slash"></i>';
+    });
+
+    // Forgot password link role change
+    roleSelect.addEventListener("change", () => {
+      const role = roleSelect.value;
+      forgotLink.href = role === "staff" ? "forgot.html" : "forgot.html";
+    });
+
+    // Fake login
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const username = form.username.value;
+      const password = form.password.value;
+      const role = form.role.value;
+
+      if (
+        (role === "student" && username === "student1" && password === "password123") ||
+        (role === "staff" && username === "staff1" && password === "staffpass")
+      ) {
+        window.location.href = "home.html";
+      } else {
+        alert("Invalid login credentials. Please try again.");
+      }
+    });
+
+    // Theme toggle
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("light-theme");
+      themeToggle.innerHTML = body.classList.contains("light-theme")
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
+    });
+  </script>
+
+</body>
+</html>
