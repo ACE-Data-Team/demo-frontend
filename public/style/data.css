@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  h1, h2 {
+    color: #1a1a1a;
+  }
+
+  #fuck {
+    color: yellow;
+  }
+
+  a {
+    color: #3366cc;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  .section {
+    margin-bottom: 30px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e3a8a; /* Deep blue */
+    color: white;
+    padding: 10px 20px;
+    height: 80px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: yellow;
+  }
+  
+  .logo p {
+    font-size: 12px;
+    margin: 0;
+    color: #cbd5e1;
+  }
+  
+  .center-nav .nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+    color: red; 
+  }
+  
+  .search input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+  }  
+
+  @media (min-width: 768px) {
+    .header-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  form {
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  textarea {
+    resize: vertical;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #001f66;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #003399;
+  }
+  .policy {
+    max-width: 600px;
+    margin-top: 20px;
+  }
+
+   /* Footer */
+   .footer {
+    background-color: #1C1F26;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+  }
