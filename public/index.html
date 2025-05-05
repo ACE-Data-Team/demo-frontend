@@ -1,113 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>University Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function updateFaculty() {
-      const faculty = document.getElementById("faculty-select").value;
-      document.getElementById("faculty-trend-title").innerText = `Faculty of ${faculty} Population Trend`;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="htmx-config" content='{"selfRequestsOnly":false}' />
+    <title>University Dashboard</title>
+    <script
+      src="https://unpkg.com/htmx.org@2.0.4"
+      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+      crossorigin="anonymous"
+    ></script>
 
-    function updateYear() {
-      const year = document.getElementById("year-select").value;
-      document.querySelector(".title").innerText = `University Dashboard ${year}`;
-      document.getElementById("staff-count-title").innerText = `Academic Staff Count ${year}`;
-      document.getElementById("student-count-title").innerText = `Total Student Count ${year}`;
-    }
-
-    function handleSearch(event) {
-      if (event.key === "Enter") {
-        const query = event.target.value.toLowerCase();
-        alert(`You searched for: ${query}`);
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      // function updateFaculty() {
+      //   const faculty = document.getElementById("faculty-select").value;
+      //   document.getElementById(
+      //     "faculty-trend-title"
+      //   ).innerText = Faculty of ${faculty} Population Trend;
+      // }
+      function updateQuery() {
+        var faculty = document.getElementById("faculty").value;
+        var queryOutput = "You selected: " + faculty;
+        document.getElementById("queryResult").textContent = queryOutput;
       }
-    }
-  </script>
-</head>
-<body>
-  <header class="header">
-    <div class="logo">
-      <a href="home.html">
-      <img src="obafemi-awolowo-university-logo-transparent.png" alt="Organization Logo" height="50">
-      </a>
-      <div>
-        <h1>OAUOIR</h1>
-        <p>Obafemi Awolowo University Office of Institutional Research</p>
-      </div>
-    </div>
-    <div class="center-nav">
-      <nav class="nav">
-        <a href="#" class="nav-link">Data</a>
-        <a href="request data.html" class="nav-link">Request Data</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-      </nav>
-    </div>
-    <div class="search">
-      <input type="text" placeholder="Search...">
-    </div>
-  </header>
 
-  <div class="main-container">
-    <div class="sidebar">
-      <div><strong>WELCOME</strong></div>
+      function updateYear() {
+        const year = document.getElementById("year-select").value;
+        document.querySelector(
+          ".title"
+        ).innerText = University Dashboard ${year};
+        document.getElementById(
+          "staff-count-title"
+        ).innerText = Academic Staff Count ${year};
+        document.getElementById(
+          "student-count-title"
+        ).innerText = Total Student Count ${year};
+      }
 
-      <label for="faculty-select"><strong>FACULTY</strong></label>
-      <select id="faculty-select" onchange="updateFaculty()">
-        <option>Science</option>
-        <option>Engineering</option>
-        <option>Business</option>
-        <option>Arts</option>
-        <option>Education</option>
-        <option>Law</option>
-        <option>Health Sciences</option>
-        <option>Social Sciences</option>
-        <option>Computer Science</option>
-        <option>Architecture</option>
-      </select>
-
-      <label for="year-select"><strong>YEAR</strong></label>
-      <select id="year-select" onchange="updateYear()">
-        <option>2023/24</option>
-        <option>2022/23</option>
-        <option>2021/22</option>
-        <option>2020/21</option>
-        <option>2019/20</option>
-        <option>2018/19</option>
-        <option>2017/18</option>
-        <option>2016/17</option>
-        <option>2015/16</option>
-        <option>2014/15</option>
-      </select>
-    </div>
-
-    <div class="main">
-      <div class="title">University Dashboard 2023/24</div>
-
-      <div class="dashboard">
-        <div class="row">
-          <div class="chart-container">
-            <div id="staff-count-title" class="chart-title">Academic Staff Count 2023/24</div>
-          </div>
-          <div class="chart-container">
-            <div id="student-count-title" class="chart-title">Total Student Count 2023/24</div>
-          </div>
+      function handleSearch(event) {
+        if (event.key === "Enter") {
+          const query = event.target.value.toLowerCase();
+          alert(You searched for: ${query});
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="home.html">
+          <img
+            src="obafemi-awolowo-university-logo-transparent.png"
+            alt="Organization Logo"
+            height="50"
+          />
+        </a>
+        <div>
+          <h1>OAUOIR</h1>
+          <p>Obafemi Awolowo University Office of Institutional Research</p>
         </div>
+      </div>
+      <div class="center-nav">
+        <nav class="nav">
+          <a href="#" class="nav-link">Data</a>
+          <a href="request data.html" class="nav-link">Request Data</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+        </nav>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search..." />
+      </div>
+    </header>
 
-        <div class="row">
-          <div class="chart-container">
-            <div class="chart-title">Academic Staff Population Trend</div>
+    <div class="main-container">
+      <div class="sidebar">
+        <div><strong>WELCOME</strong></div>
+
+        <label for="faculty-select"><strong>FACULTY</strong></label>
+        <select id="faculty-select" onchange="updateFaculty()">
+          <option>Education</option>
+          <option>Technology</option>
+          <option>Science</option>
+          <option>Law</option>
+          <option>Health Sciences</option>
+          <option>Computer</option>
+          <option>Arts</option>
+        </select>
+        <p id="queryResult"></p>
+
+        <label for="year-select"><strong>YEAR</strong></label>
+        <select
+          id="year-select"
+          onchange="updateYear()"
+          name="year"
+          hx-get="/loadYear"
+          hx-target="#year-content"
+          hx-trigger="change"
+          hx-include="[name='year']"
+        >
+          <option value="2023/24">2023/24</option>
+          <option value="2022/23">2022/23</option>
+          <option value="2021/22">2021/22</option>
+          <option value="2020/21">2020/21</option>
+          <option value="2019/20">2019/20</option>
+          <option value="2018/19">2018/19</option>
+          <option value="2017/18">2017/18</option>
+          <option value="2016/17">2016/17</option>
+          <option value="2015/16">2015/16</option>
+          <option value="2014/15">2014/15</option>
+        </select>
+      </div>
+
+      <div class="main">
+        <div class="title">University Dashboard 2023/24</div>
+        <div class="dashboard">
+          <div class="row">
+            <div class="chart-container">
+              <div id="staff-count-title" class="chart-title">
+                Academic Staff Count 2023/24
+              </div>
+            </div>
+            <div class="chart-container">
+              <div id="student-count-title" class="chart-title">
+                Total Student Count 2023/24
+              </div>
+            </div>
           </div>
-          <div class="chart-container">
+
+          <div class="row">
+            <div class="chart-container">
+              <div class="chart-title">Academic Staff Population Trend</div>
+            </div>
+            <!-- <div class="chart-container">
             <div id="faculty-trend-title" class="chart-title">Faculty of Science Population Trend</div>
-          </div>
-          <div class="chart-container">
-            <div class="chart-title">Students Distribution Trend by Type</div>
+          </div> -->
+            <div class="chart-container">
+              <div class="chart-title">Students Distribution Trend by Type</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
