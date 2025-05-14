@@ -29,19 +29,19 @@
         const year = document.getElementById("year-select").value;
         document.querySelector(
           ".title"
-        ).innerText = University Dashboard ${year};
+        ).innerText = `University Dashboard ${year}`;
         document.getElementById(
           "staff-count-title"
-        ).innerText = Academic Staff Count ${year};
+        ).innerText = `Academic Staff Count ${year}`;
         document.getElementById(
           "student-count-title"
-        ).innerText = Total Student Count ${year};
+        ).innerText = `Total Student Count ${year}`;
       }
 
       function handleSearch(event) {
         if (event.key === "Enter") {
           const query = event.target.value.toLowerCase();
-          alert(You searched for: ${query});
+          alert(`You searched for: ${query}`);
         }
       }
     </script>
