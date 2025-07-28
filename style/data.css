@@ -34,7 +34,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1e3a8a; /* Deep blue */
+    background-color: #000033; /* Deep blue */
     color: white;
     padding: 10px 20px;
     height: 80px;
@@ -127,7 +127,7 @@ body {
     cursor: pointer;
   }
   button:hover {
-    background-color: #003399;
+    background-color: #000033;
   }
   .policy {
     max-width: 600px;
@@ -136,7 +136,7 @@ body {
 
    /* Footer */
    .footer {
-    background-color: #1C1F26;
+    background-color: #000033;
     padding: 15px 30px;
     text-align: center;
     font-size: 0.9rem;

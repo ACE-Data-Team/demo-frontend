@@ -8,13 +8,243 @@
       src="https://kit.fontawesome.com/25863d8331.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./style/styles.css" />
+    <style>
+      :root {
+        --bg-color: #f5f5f5;
+        --text-color: #333;
+        --header-bg: #000033;
+        --primary: #000033;
+        --card-bg: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #000033; /* Deep blue */
+        color: white;
+        padding: 10px 20px;
+        height: 80px;
+      }
+
+      .dark {
+        --bg-color: #1a1a1a;
+        --text-color: #f1f1f1;
+        --header-bg: #000022;
+        --primary: white;
+        --card-bg: #2c2c2c;
+        --border-color: #444;
+      }
+
+      #theme-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+        border-radius: 50px;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color, #ccc);
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        color: var(--text-color);
+        z-index: 1000;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .dark #theme-toggle {
+        background-color: #1a1a1a;
+        color: #fff;
+        border-color: #555;
+      }
+
+      .dark .placeholder {
+        background-color: #131212; /* black in dark mode */
+        color: #fff; /* white text */
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      .logo h1 {
+        margin: 0;
+        font-size: 24px;
+        color: yellow;
+      }
+
+      .logo p {
+        font-size: 12px;
+        margin: 0;
+        color: #cbd5e1;
+      }
+
+      .center-nav .nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .nav-link:hover {
+        text-decoration: underline;
+        color: red;
+      }
+
+      .search input {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        width: 200px;
+      }
+
+      @media (min-width: 768px) {
+        .header-content {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      figure img {
+        width: 100%;
+        height: 500px;
+        display: block;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .number-display {
+        font-family: "Roboto Mono", monospace;
+      }
+
+      .facts-grid,
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .fact-card,
+      .about-card {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .fact-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .dashboard-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      .bar-chart-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default: 1 column on small screens */
+        gap: 20px;
+      }
+
+      @media (min-width: 768px) {
+        .bar-chart-grid {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Two columns on tablet/desktop */
+        }
+      }
+
+      .chart-card {
+        background-color: var(--card-bg);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .chart-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .placeholder {
+        background-color: #e2e8f0;
+        border-radius: 8px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #475569;
+        font-size: 14px;
+      }
+
+      footer {
+        background-color: var(--header-bg);
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      .fa-brands {
+        margin: 0 10px;
+      }
+    </style>
   </head>
   <body>
     <header class="header">
       <div class="logo">
         <img
-          src="./src/obafemi-awolowo-university-logo-transparent.png"
+          src="/src/obafemi-awolowo-university-logo-transparent.png"
           alt="Organization Logo"
           height="50"
         />
@@ -25,7 +255,7 @@
       </div>
       <div class="center-nav">
         <nav class="nav">
-          <a href="index.html" class="nav-link">Data</a>
+          <a href="wip.html" class="nav-link">Data</a>
           <a href="request data.html" class="nav-link">Request Data</a>
           <a href="blog.html" class="nav-link">Blog</a>
         </nav>
@@ -36,7 +266,10 @@
     </header>
 
     <figure>
-      <img src="./src/landscape.webp" alt="Obafemi Awolowo University" />
+      <img
+        src="/src/OAU-scaled-1-1536x1152.webp"
+        alt="Obafemi Awolowo University"
+      />
     </figure>
 
     <main id="main-content" class="main">
@@ -47,6 +280,36 @@
           Analytics. We transform complex datasets into user-friendly resources,
           fueling innovation and public understanding.
         </p>
+      </section>
+
+      <section class="section dashboard-grid">
+        <h2>Dashboard Visualizations</h2>
+
+        <!-- Bar Charts in 2-by-2 Grid -->
+        <div class="bar-chart-grid">
+          <div class="chart-card">
+            <h3>Student Enrollment</h3>
+            <div class="placeholder">Chart Placeholder</div>
+          </div>
+          <div class="chart-card">
+            <h3>Graduation Rates</h3>
+            <div class="placeholder">Chart placeholder</div>
+          </div>
+          <div class="chart-card">
+            <h3>Research Funding</h3>
+            <div class="placeholder">Chart Placeholder</div>
+          </div>
+          <div class="chart-card">
+            <h3>Publications Per Faculty</h3>
+            <div class="placeholder">Chart Placeholder</div>
+          </div>
+        </div>
+
+        <!-- Pie Chart Full Width -->
+        <div class="chart-card pie-chart full-width">
+          <h3>Faculty Distribution</h3>
+          <div class="placeholder">Chart Placeholder</div>
+        </div>
       </section>
 
       <section class="section">
@@ -110,6 +373,8 @@
       </section>
     </main>
 
+    <button id="theme-toggle">Toggle Theme</button>
+
     <footer class="footer">
       <p>
         Contact us: <a href="mailto:help@oauir.edu.ng">help@oauir.edu.ng</a> |
@@ -121,5 +386,23 @@
       <i class="fa-brands fa-twitter"></i>
       <i class="fa-brands fa-facebook"></i>
     </footer>
+
+    <script>
+      const toggleButton = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      // Load stored theme preference
+      if (localStorage.getItem("theme") === "dark") {
+        root.classList.add("dark");
+        toggleButton.textContent = "Toggle Theme";
+      }
+
+      toggleButton.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        const isDark = root.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        toggleButton.textContent = isDark ? "Toggle Theme" : "Toggle Theme";
+      });
+    </script>
   </body>
 </html>
